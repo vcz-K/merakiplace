@@ -1,24 +1,19 @@
 import React from 'react';
-import Home from './containers/home';
+import Home from './routes/Home';
+import { AppContainer } from './assets/styles/app.style';
+import TabNavigator from './components/TabNavigator';
+import { Route, Routes } from 'react-router-dom';
+import Scrap from './routes/Scrap';
 
 function App() {
 	return (
-		<div className='App'>
-			<header className='App-header'>
-				<p>
-					Edit <code>src/App.tsx</code> and save to reloads.
-				</p>
-				<a
-					className='App-link'
-					href='https://reactjs.org'
-					target='_blank'
-					rel='noopener noreferrer'
-				>
-					Learn React
-				</a>
-			</header>
-			<Home />
-		</div>
+		<AppContainer>
+			<Routes>
+				<Route path='/' element={<Home />} />
+				<Route path='/scrap' element={<Scrap />} />
+			</Routes>
+			<TabNavigator />
+		</AppContainer>
 	);
 }
 
