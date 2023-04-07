@@ -33,16 +33,21 @@ export const articleSlice = createSlice({
 		builder
 			.addCase(getArticleList.pending, (state, action) => {})
 			.addCase(getArticleList.fulfilled, (state, { payload }) => {
-				const docs = payload.response.docs;
-				for (let d of docs) {
-					console.log(docs.indexOf(d));
-					// console.log(d.headline.main);
-					// console.log(d.pub_date);
-					console.log(d.byline.original);
-					// console.log(
-					// 	`${d.byline.person[0].firstname} ${d.byline.person[0].lastname}`,
-					// );
-				}
+				// console.log(docs.indexOf(d));
+				// console.log(d.headline.main);
+				// console.log(d.pub_date);
+				// console.log(d.byline.original);
+				// console.log(
+				// 	`${d.byline.person[0].firstname} ${d.byline.person[0].lastname}`,
+				// );
+				state.articleList = payload.response.docs.map((d) => ({
+					id: d._id,
+					webUrl: d.web_url,
+					headLine: d.headline.main,
+					pubDate: d.pub_date,
+					byLine: d.byline.original,
+					scrap: payload.response.docs.indexOf(d) % 2 === 0,
+				}));
 			})
 			.addCase(getArticleList.rejected, (state, action) => {});
 	},

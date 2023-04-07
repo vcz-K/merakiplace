@@ -3,12 +3,13 @@ export interface ArticleState {
 	articleList: ArticleListItem[];
 }
 
-interface ArticleListItem {
+export interface ArticleListItem {
 	id: string;
 	webUrl: string;
 	headLine: string;
 	pubDate: Date;
 	byLine: string;
+	scrap: boolean;
 }
 
 export interface GetArticleListRes {
