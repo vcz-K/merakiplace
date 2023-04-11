@@ -1,9 +1,14 @@
+// Packages
 import React from 'react';
-import Home from './routes/Home';
-import { AppContainer } from './assets/styles/app.style';
-import TabNavigator from './components/TabNavigator';
 import { Route, Routes } from 'react-router-dom';
+
+// Routes
 import Scrap from './routes/Scrap';
+import Home from './routes/Home';
+
+// Components
+import TabNavigator from './components/TabNavigator';
+import { AppContainer } from './assets/styles/app.style';
 
 function App() {
 	return (

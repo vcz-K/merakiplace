@@ -1,6 +1,10 @@
 export interface ArticleState {
 	page: number;
 	articleList: ArticleListItem[];
+	filterHeadLine: string;
+	filterDate: string;
+	filterNationList: NationListItem[];
+	isFinish: boolean;
 }
 
 export interface ArticleListItem {
@@ -12,7 +16,7 @@ export interface ArticleListItem {
 	scrap: boolean;
 }
 
-export interface GetArticleListRes {
+interface GetArticleListRes {
 	status: string;
 	copyright: string;
 	response: {
@@ -48,4 +52,23 @@ export interface GetArticleListRes {
 			_id: string;
 		}[];
 	};
+}
+
+export interface NationListItem {
+	name: string;
+	val: string;
+	selected: boolean;
+}
+
+export interface SetFilterDataPayload {
+	headLine: string;
+	date: Date | null;
+	nationList: NationListItem[];
+}
+
+export type ApplyScrappedPayload = ArticleListItem[];
+
+export interface GetArticleListPayload {
+	articleList: GetArticleListRes['response']['docs'];
+	scrapList: ArticleListItem[];
 }

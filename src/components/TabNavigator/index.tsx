@@ -1,9 +1,9 @@
-import { TabButtonWrapper, TabNavigatorContainer, TabText } from './style';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as ScrapIcon } from '../../assets/icons/scrap.svg';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 import { TabStatus } from '../../constant/tabStatus';
+import { TabButtonWrapper, TabNavigatorContainer, TabText } from './style';
 
 const TabNavigator = () => {
 	const [currTab, setCurrTab] = useState<TabStatus>(TabStatus.HOME);

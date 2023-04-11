@@ -9,7 +9,7 @@ export const ArticleListContainer = styled.ul`
 	background-color: #f0f1f4;
 `;
 
-export const ArticleListItem = styled.li`
+export const ArticleListItemWrapper = styled.li`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
